@@ -1,12 +1,11 @@
-# Kimi K3 Agentic Trial
+# Agent coding trial
 
-Multi-file coding trial for evaluating **Kimi K3** (or any agent) on a realistic mini-codebase.
+A small multi-file coding benchmark originally written for Kimi K3. It can also
+be used with another coding agent. The repository is an evaluation fixture,
+not a finished application: its bugs and incomplete features are intentional.
 
-This is intentionally harder than a single-function chat puzzle:
-- multiple modules
-- a real bug + incomplete features
-- tests that fail until the agent fixes the right places
-- constraints against rewriting the whole project
+Tests fail on a clean checkout by design; the task is to make them pass without
+changing the tests or rewriting the project.
 
 ## Quick start
 
@@ -18,6 +17,10 @@ python -m pytest -q
 Expected on a clean checkout: **tests fail**.
 
 When the agent is done, the same command should pass.
+
+Give the agent [PROMPT_FOR_KIMI.md](PROMPT_FOR_KIMI.md), which describes the
+task and constraints. The prompt names Kimi K3 but the trial is not limited to
+that model.
 
 ## Layout
 
@@ -34,7 +37,7 @@ tests/
   test_service.py
   test_pricing.py
   test_integration.py
-PROMPT_FOR_KIMI.md   # paste this into Kimi K3 after connecting GitHub
+PROMPT_FOR_KIMI.md   # agent task and constraints
 ```
 
 ## Success criteria
